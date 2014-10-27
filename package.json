@@ -1,0 +1,19 @@
+{
+  "name": "truefalsenull",
+  "version": "0.0.1",
+  "description": "A simple way of asking complex questions about user state.",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp"
+  },
+  "keywords": [
+    "authorization",
+    "preferences"
+  ],
+  "author": "Frankie O'Rourke",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.8.9"
+  },
+  "repository": "https://github.com/orourkedd/truefalsenull.git"
+}
