@@ -1,0 +1,13 @@
+{
+  "globals" : [
+    "require",
+    "module",
+    "describe",
+    "it",
+    "before",
+    "beforeEach",
+    "after",
+    "afterEach",
+    "console"
+  ]
+}

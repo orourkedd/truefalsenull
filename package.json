@@ -1,25 +1,26 @@
 {
-  "name": "truefalsenull",
-  "version": "0.0.1",
-  "description": "A simple way of asking complex questions about user state.",
-  "main": "index.js",
-  "scripts": {
-    "test": "gulp"
-  },
-  "keywords": [
-    "authorization",
-    "preferences"
-  ],
-  "author": "Frankie O'Rourke",
-  "license": "MIT",
-  "devDependencies": {
-    "chai": "^1.9.2",
-    "gulp": "^3.8.9",
-    "gulp-mocha": "^1.1.1",
-    "gulp-notify": "^2.0.0",
-    "gulp-plumber": "^0.6.6",
-    "gulp-watch": "^1.1.0",
-    "mocha": "^2.0.1"
-  },
-  "repository": "https://github.com/orourkedd/truefalsenull.git"
+	"name": "truefalsenull",
+	"version": "0.0.1",
+	"description": "A simple way of asking complex questions about user state.",
+	"main": "index.js",
+	"scripts": {
+		"test": "gulp"
+	},
+	"keywords": [
+		"authorization",
+		"preferences"
+	],
+	"author": "Frankie O'Rourke",
+	"license": "MIT",
+	"devDependencies": {
+		"chai": "^1.9.2",
+		"gulp": "^3.8.9",
+		"gulp-mocha": "^1.1.1",
+		"gulp-notify": "^2.0.0",
+		"gulp-plumber": "^0.6.6",
+		"gulp-traceur": "^0.13.0",
+		"gulp-watch": "^1.1.0",
+		"mocha": "^2.0.1"
+	},
+	"repository": "https://github.com/orourkedd/truefalsenull.git"
 }

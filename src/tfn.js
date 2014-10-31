@@ -1,98 +1,99 @@
-var TFN = function() {
-	this.middleware = [];
-};
+"use strict";
 
-TFN.prototype.use = function(middleware){
-	if(typeof middleware === "function") {
-		this.middleware.push({
-			middleware: middleware
+class TFN {
+
+	constructor() {
+		this.middleware = [];
+	}
+
+	use(middleware) {
+		if (typeof middleware === "function") {
+			this.middleware.push({
+				middleware: middleware
+			});
+		} else {
+			this.middleware.push(middleware);
+		}
+	}
+
+	check(user, key, resource, done) {
+
+		if (!resource && !done) {
+			throw new Error("A callback is required.");
+		}
+
+		//if no resource is passed
+		if (typeof done === "undefined") {
+			if (typeof resource !== "function") {
+				throw new Error("A callback is required.");
+			}
+			done = resource;
+			resource = null;
+		}
+
+		this.run(user, key, resource, function (err, result) {
+			done(null, result);
 		});
 	}
-	else {
-		this.middleware.push(middleware);	
-	}
-};
 
-TFN.prototype.check = function(user, key, resource, done){
+	run(user, key, resource, done, index) {
+		var self = this;
 
-	if(!resource && !done) {
-		throw new Error('A callback is required.');
-	}
+		index = index || 0;
 
-	//if no resource is passed
-	if(typeof done === "undefined") {
-		if(typeof resource !== "function") {
-			throw new Error('A callback is required.');
+		if (index >= this.middleware.length) {
+			return done(null, {
+				result: null
+			});
 		}
-		done = resource;
-		resource = null;
-	}
 
-	this.run(user, key, resource, function(err, result){
-		done(null, result);
-	});
-};
+		var middleware = this.middleware[index];
 
-TFN.prototype.run = function(user, key, resource, done, index){
-	var self = this;
+		//Make sure middleware is applicable.
+		//I might add more checks in the future
 
-	index = index || 0;
+		//1) check if this middleware requires a resource
+		if (middleware.requireResource && !resource) {
+			return this.run(user, key, resource, done, index + 1);
+		}
 
-	if(index >= this.middleware.length) {
-		return done(null, {result: null});
-	}
+		//2) make sure this middleware accepts this key
+		if (middleware.keys instanceof Array) {
+			var keyRequirement = false;
+			for (var i in middleware.keys) {
+				if (middleware.keys[i] === key) {
+					keyRequirement = true;
+					break;
+				}
+			}
 
-	var middleware = this.middleware[index];
-
-	//qualify middleware here?
-
-	//check if this middleware requires a resource
-	if(middleware.requireResource && !resource) {
-		return this.run(user, key, resource, done, index + 1);
-	}
-
-	//make sure this middleware accepts this key
-	if(middleware.keys instanceof Array) {
-		var keyRequirement = false;
-		for(var i in middleware.keys) {
-			if(middleware.keys[i] === key) {
-				keyRequirement = true;
-				break;
+			if (!keyRequirement) {
+				return this.run(user, key, resource, done, index + 1);
 			}
 		}
 
-		if(!keyRequirement) {
-			return this.run(user, key, resource, done, index + 1);
-		}
+		middleware.middleware.call(this, user, key, resource, function (err, result) {
+
+			result = self.normalizeResult(result);
+
+			if (result.result === true || result.result === false) {
+				return done(null, result);
+			}
+
+			self.run(user, key, resource, done, index + 1);
+		});
 	}
 
-	middleware.middleware.call(this, user, key, resource, function(err, result){
-
-		//Normalize results
-
-		if(result === true) {
-			result = {result: true};
+	normalizeResult(result) {
+		if (result === true || result === false || result === null) {
+			return {
+				result: result
+			};
 		}
 
-		if(result === false) {
-			result = {result: false};
-		}
-
-		if(result === null) {
-			result = {result: null};
-		}
-
-		if(result.result === true) {
-			return done(null, result);
-		}
-
-		if(result.result === false) {
-			return done(null, result);
-		}
-
-		self.run(user, key, resource, done, index + 1);
-	});
-};
+		return result;
+	}
+}
 
 
 module.exports = TFN;
