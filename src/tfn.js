@@ -1,6 +1,10 @@
 "use strict";
 
-var q = require("q");
+//Look for the global.
+//If its not there, require it.
+if (!Q) {
+	var Q = require("q");
+}
 
 var TFN = function () {
 	this.middleware = [];
@@ -19,7 +23,7 @@ TFN.prototype.use = function (middleware) {
 TFN.prototype.check = function (user, key, resource, options, skip) {
 	options = options || {};
 
-	var deferred = q.defer();
+	var deferred = Q.defer();
 
 	this.run(user, key, resource, options, skip).then(function (result) {
 		deferred.resolve(result);
@@ -30,7 +34,7 @@ TFN.prototype.check = function (user, key, resource, options, skip) {
 
 TFN.prototype.run = function (user, key, resource, options, skip, deferred, index) {
 	var self = this;
-	deferred = deferred || q.defer();
+	deferred = deferred || Q.defer();
 	index = index || 0;
 
 	if (index >= this.middleware.length) {
@@ -71,7 +75,7 @@ TFN.prototype.run = function (user, key, resource, options, skip, deferred, inde
 		}
 	}
 
-	var middlewareDeferred = q.defer();
+	var middlewareDeferred = Q.defer();
 
 	middlewareDeferred.promise.then(function (result) {
 
@@ -100,6 +104,5 @@ TFN.prototype.normalizeResult = function (result) {
 
 	return result;
 };
-
 
 module.exports = TFN;
