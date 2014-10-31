@@ -62,22 +62,6 @@ describe("TFN", function () {
 			});
 		});
 
-		it("should throw an error if no resource or callback is given", function () {
-			var tfn = new TFN();
-			var fn = function () {
-				tfn.check({}, "test");
-			};
-			expect(fn).to.throw();
-		});
-
-		it("should throw an error if no callback is given", function () {
-			var tfn = new TFN();
-			var fn = function () {
-				tfn.check({}, "test", {});
-			};
-			expect(fn).to.throw();
-		});
-
 		it("should not check middleware if resource is required and no resource is given", function (done) {
 			var tfn = new TFN();
 
@@ -138,7 +122,9 @@ describe("TFN", function () {
 				}
 			});
 
-			tfn.check({}, "test");
+			tfn.check({}, "test").then(function () {
+				done();
+			});
 		});
 
 		it("should work with nested calls", function (done) {
