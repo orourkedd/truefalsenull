@@ -1,5 +1,7 @@
 "use strict";
 
+var q = require("q");
+
 var TFN = function () {
 	this.middleware = [];
 };
@@ -14,35 +16,28 @@ TFN.prototype.use = function (middleware) {
 	}
 };
 
-TFN.prototype.check = function (user, key, resource, done) {
+TFN.prototype.check = function (user, key, resource, options, skip) {
+	options = options || {};
 
-	if (!resource && !done) {
-		throw new Error("A callback is required.");
-	}
+	var deferred = q.defer();
 
-	//if no resource is passed
-	if (typeof done === "undefined") {
-		if (typeof resource !== "function") {
-			throw new Error("A callback is required.");
-		}
-		done = resource;
-		resource = null;
-	}
-
-	this.run(user, key, resource, function (err, result) {
-		done(null, result);
+	this.run(user, key, resource, options, skip).then(function (result) {
+		deferred.resolve(result);
 	});
+
+	return deferred.promise;
 };
 
-TFN.prototype.run = function (user, key, resource, done, index) {
+TFN.prototype.run = function (user, key, resource, options, skip, deferred, index) {
 	var self = this;
-
+	deferred = deferred || q.defer();
 	index = index || 0;
 
 	if (index >= this.middleware.length) {
-		return done(null, {
+		deferred.resolve({
 			result: null
 		});
+		return deferred.promise;
 	}
 
 	var middleware = this.middleware[index];
@@ -50,36 +45,50 @@ TFN.prototype.run = function (user, key, resource, done, index) {
 	//Make sure middleware is applicable.
 	//I might add more checks in the future
 
-	//1) check if this middleware requires a resource
-	if (middleware.requireResource && !resource) {
-		return this.run(user, key, resource, done, index + 1);
+	//1) check if this should be skipped
+	if (skip === index) {
+		return this.run(user, key, resource, options, skip, deferred, index + 1);
 	}
 
-	//2) make sure this middleware accepts this key
+	//2) check if this middleware requires a resource
+	if (middleware.requireResource && !resource) {
+		return this.run(user, key, resource, options, skip, deferred, index + 1);
+	}
+
+	//3) make sure this middleware accepts this key
+	var keyRequirementFulfilled = true;
 	if (middleware.keys instanceof Array) {
-		var keyRequirement = false;
+		keyRequirementFulfilled = false;
 		for (var i in middleware.keys) {
 			if (middleware.keys[i] === key) {
-				keyRequirement = true;
+				keyRequirementFulfilled = true;
 				break;
 			}
 		}
 
-		if (!keyRequirement) {
-			return this.run(user, key, resource, done, index + 1);
+		if (keyRequirementFulfilled === false) {
+			return this.run(user, key, resource, options, skip, deferred, index + 1);
 		}
 	}
 
-	middleware.middleware.call(this, user, key, resource, function (err, result) {
+	var middlewareDeferred = q.defer();
+
+	middlewareDeferred.promise.then(function (result) {
 
 		result = self.normalizeResult(result);
 
 		if (result.result === true || result.result === false) {
-			return done(null, result);
+			return deferred.resolve(result);
 		}
 
-		self.run(user, key, resource, done, index + 1);
+		self.run(user, key, resource, options, skip, deferred, index + 1);
 	});
+
+	//put options at the end because not all middleware will use them
+	//i'm using options because I'm thinking about multitenancy
+	middleware.middleware.call(this, user, key, resource, middlewareDeferred, options, index);
+
+	return deferred.promise;
 };
 
 TFN.prototype.normalizeResult = function (result) {

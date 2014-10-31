@@ -4,7 +4,6 @@ var gulp = require("gulp");
 var mocha = require("gulp-mocha");
 var notify = require("gulp-notify");
 var plumber = require("gulp-plumber");
-var traceur = require("gulp-traceur");
 
 gulp.task("default", function () {
 	return gulp.src("./spec/**/*-spec.js", {
@@ -12,7 +11,7 @@ gulp.task("default", function () {
 		})
 		.pipe(plumber())
 		.pipe(mocha({
-			reporter: "nyan"
+			//reporter: "nyan"
 		}))
 		.on("error", notify.onError(function (error) {
 			return "Message to the notifier: " + error.message;
@@ -24,10 +23,4 @@ gulp.task("default", function () {
 
 gulp.task("watch:spec", function () {
 	gulp.start("default").watch(["./spec/**/*-spec.js", "./src/**/*"], ["default"]);
-});
-
-gulp.task("compile", function () {
-	return gulp.src("src/**/*")
-		.pipe(traceur())
-		.pipe(gulp.dest("lib"));
 });
