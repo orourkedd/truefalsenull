@@ -1,7 +1,7 @@
 "use strict";
 
 var expect = require("chai").expect;
-var TFN = require("../lib/tfn");
+var TFN = require("../src/tfn");
 
 describe("TFN", function () {
 
