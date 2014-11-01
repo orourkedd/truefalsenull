@@ -25,9 +25,11 @@ TFN.prototype.check = function (user, key, resource, options, skip) {
 
 	var deferred = Q.defer();
 
-	this.run(user, key, resource, options, skip).then(function (result) {
-		deferred.resolve(result);
-	});
+	this.run(user, key, resource, options, skip)
+		.then(function (result) {
+			deferred.resolve(result);
+		})
+		.done();
 
 	return deferred.promise;
 };

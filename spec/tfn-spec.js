@@ -10,8 +10,8 @@ describe("TFN", function () {
 		it("should add middleware", function () {
 			var tfn = new TFN();
 
-			tfn.use(function (done) {
-				done(true);
+			tfn.use(function (user, key, resource, deferred) {
+				deferred.resolve(true);
 			});
 
 			expect(tfn.middleware.length).to.eq(1);
