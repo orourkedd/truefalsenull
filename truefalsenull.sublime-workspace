@@ -24,19 +24,10 @@
 	"buffers":
 	[
 		{
-			"file": "spec/tfn-spec.js",
-			"settings":
-			{
-				"buffer_size": 2530,
-				"line_ending": "Unix",
-				"name": "console.log(\"jere\");"
-			}
-		},
-		{
 			"file": "src/tfn.js",
 			"settings":
 			{
-				"buffer_size": 1914,
+				"buffer_size": 2503,
 				"line_ending": "Unix"
 			}
 		}
@@ -44,11 +35,55 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 0.0,
+		"height": 392.0,
 		"selected_items":
 		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Package Control: Remove Package"
+			],
+			[
+				"format",
+				"Format: Javascript"
+			],
+			[
+				"lint",
+				"JSLint"
+			],
+			[
+				"forma",
+				"Format: Javascript"
+			],
+			[
+				"form",
+				"Format: Javascript"
+			],
+			[
+				"ind",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"in",
+				"Indentation: Convert to Tabs"
+			]
 		],
-		"width": 0.0
+		"width": 530.0
 	},
 	"console":
 	{
@@ -70,17 +105,38 @@
 	"expanded_folders":
 	[
 		"/Users/frankie/Documents/Websites/projects/truefalsenull",
+		"/Users/frankie/Documents/Websites/projects/truefalsenull/lib",
+		"/Users/frankie/Documents/Websites/projects/truefalsenull/node_modules",
+		"/Users/frankie/Documents/Websites/projects/truefalsenull/node_modules/q",
 		"/Users/frankie/Documents/Websites/projects/truefalsenull/spec",
 		"/Users/frankie/Documents/Websites/projects/truefalsenull/src"
 	],
 	"file_history":
 	[
-		"/Users/frankie/Documents/Websites/projects/truefalsenull/src/tfn.js",
 		"/Users/frankie/Documents/Websites/projects/truefalsenull/gulpfile.js",
 		"/Users/frankie/Documents/Websites/projects/truefalsenull/package.json",
+		"/Users/frankie/Documents/Websites/projects/truefalsenull/index.js",
+		"/Users/frankie/Documents/Websites/projects/truefalsenull/lib/tfn.browser.js",
+		"/Users/frankie/Documents/Websites/projects/truefalsenull/lib/tfn.js",
+		"/Users/frankie/Documents/Websites/projects/truefalsenull/tfn.browser.js",
+		"/Users/frankie/Documents/Websites/projects/truefalsenull/lib/out.js",
+		"/Users/frankie/Documents/Websites/projects/truefalsenull/spec/tfn-spec.js",
+		"/Users/frankie/Documents/Websites/projects/truefalsenull/src/tfn.js",
+		"/Users/frankie/Documents/Websites/projects/truefalsenull/t.js",
+		"/Users/frankie/Documents/Websites/projects/truefalsenull/.jshintrc",
+		"/Users/frankie/Documents/Websites/projects/truefalsenull/node_modules/gulp/index.js",
+		"/Users/frankie/Documents/Websites/projects/truefalsenull/node_modules/mocha/lib/reporters/spec.js",
+		"/Users/frankie/Documents/Websites/projects/truefalsenull/node_modules/gulp-watch/node_modules/readable-stream/lib/_stream_passthrough.js",
+		"/Users/frankie/Documents/Websites/projects/truefalsenull/node_modules/chai/sauce.browsers.js",
+		"/Users/frankie/Documents/Websites/projects/truefalsenull/node_modules/chai/lib/chai/utils/transferFlags.js",
+		"/Users/frankie/Documents/Websites/projects/truefalsenull/truefalsenull.sublime-project",
+		"/Users/frankie/Library/Application Support/Sublime Text 3/Packages/JSHint Gutter/.jshintrc",
+		"/Users/frankie/Library/Application Support/Sublime Text 3/Packages/JSHint Gutter/JSHint.sublime-settings",
+		"/Users/frankie/Library/Application Support/Sublime Text 3/Packages/User/JsFormat.sublime-settings",
+		"/Users/frankie/Library/Application Support/Sublime Text 3/Packages/JsFormat/JsFormat.sublime-settings",
+		"/Users/frankie/Library/Application Support/Sublime Text 3/Packages/JSLint/JSLint.sublime-settings",
 		"/Users/frankie/Documents/Websites/clients/cruhs/gulpfile.js",
 		"/Users/frankie/Documents/Websites/clients/cruhs/spec/models/task-spec.coffee",
-		"/Users/frankie/Documents/Websites/projects/truefalsenull/index.js",
 		"/Users/frankie/Documents/Websites/projects/truefalsenull/.gitignore",
 		"/Users/frankie/Documents/Websites/epistle/epistle/server/app.js",
 		"/Users/frankie/Documents/Websites/epistle/epistle/server/infrastructure/stormpath-facebook.js",
@@ -109,9 +165,10 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 93.0,
 		"where_history":
 		[
+			""
 		]
 	},
 	"find_state":
@@ -119,6 +176,14 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"q.",
+			"'",
+			".run",
+			".call",
+			".check",
+			"check",
+			".use",
+			"'",
 			"provider",
 			"facebook",
 			"console",
@@ -131,12 +196,14 @@
 		"regex": false,
 		"replace_history":
 		[
+			"Q.",
+			"\""
 		],
 		"reverse": false,
 		"show_context": true,
 		"use_buffer2": true,
 		"whole_word": false,
-		"wrap": true
+		"wrap": false
 	},
 	"groups":
 	[
@@ -146,59 +213,90 @@
 			[
 				{
 					"buffer": 0,
-					"file": "spec/tfn-spec.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2530,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1755,
-								1755
-							]
-						],
-						"settings":
-						{
-							"auto_name": "console.log(\"jere\");",
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 1475.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
 					"file": "src/tfn.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1914,
+						"buffer_size": 2503,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								191,
-								191
+								155,
+								155
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content"
+							],
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -235,6 +333,10 @@
 		]
 	},
 	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 225.0
+	},
 	"output.find_results":
 	{
 		"height": 0.0
@@ -242,7 +344,7 @@
 	"project": "truefalsenull.sublime-project",
 	"replace":
 	{
-		"height": 50.0
+		"height": 64.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -250,6 +352,14 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"spec",
+				"node_modules/mocha/lib/reporters/spec.js"
+			],
+			[
+				"tfn",
+				"src/tfn.js"
+			]
 		],
 		"width": 0.0
 	},
@@ -263,11 +373,11 @@
 	},
 	"select_symbol":
 	{
-		"height": 0.0,
+		"height": 392.0,
 		"selected_items":
 		[
 		],
-		"width": 0.0
+		"width": 392.0
 	},
 	"selected_group": 0,
 	"settings":
@@ -277,7 +387,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 214.0,
+	"side_bar_width": 262.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

@@ -105,4 +105,6 @@ TFN.prototype.normalizeResult = function (result) {
 	return result;
 };
 
-module.exports = TFN;
+if (module) {
+	module.exports = TFN;
+}
