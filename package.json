@@ -1,6 +1,6 @@
 {
 	"name": "truefalsenull",
-	"version": "0.0.4",
+	"version": "0.0.5",
 	"description": "A simple way of asking complex questions about user state.",
 	"main": "index.js",
 	"scripts": {

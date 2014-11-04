@@ -27,7 +27,15 @@
 			"file": "src/tfn.js",
 			"settings":
 			{
-				"buffer_size": 2503,
+				"buffer_size": 2535,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "spec/tfn-spec.js",
+			"settings":
+			{
+				"buffer_size": 4317,
 				"line_ending": "Unix"
 			}
 		}
@@ -106,22 +114,20 @@
 	[
 		"/Users/frankie/Documents/Websites/projects/truefalsenull",
 		"/Users/frankie/Documents/Websites/projects/truefalsenull/lib",
-		"/Users/frankie/Documents/Websites/projects/truefalsenull/node_modules",
-		"/Users/frankie/Documents/Websites/projects/truefalsenull/node_modules/q",
 		"/Users/frankie/Documents/Websites/projects/truefalsenull/spec",
 		"/Users/frankie/Documents/Websites/projects/truefalsenull/src"
 	],
 	"file_history":
 	[
-		"/Users/frankie/Documents/Websites/projects/truefalsenull/gulpfile.js",
-		"/Users/frankie/Documents/Websites/projects/truefalsenull/package.json",
+		"/Users/frankie/Documents/Websites/projects/truefalsenull/spec/tfn-spec.js",
+		"/Users/frankie/Documents/Websites/projects/truefalsenull/src/tfn.js",
 		"/Users/frankie/Documents/Websites/projects/truefalsenull/index.js",
+		"/Users/frankie/Documents/Websites/projects/truefalsenull/package.json",
+		"/Users/frankie/Documents/Websites/projects/truefalsenull/gulpfile.js",
 		"/Users/frankie/Documents/Websites/projects/truefalsenull/lib/tfn.browser.js",
 		"/Users/frankie/Documents/Websites/projects/truefalsenull/lib/tfn.js",
 		"/Users/frankie/Documents/Websites/projects/truefalsenull/tfn.browser.js",
 		"/Users/frankie/Documents/Websites/projects/truefalsenull/lib/out.js",
-		"/Users/frankie/Documents/Websites/projects/truefalsenull/spec/tfn-spec.js",
-		"/Users/frankie/Documents/Websites/projects/truefalsenull/src/tfn.js",
 		"/Users/frankie/Documents/Websites/projects/truefalsenull/t.js",
 		"/Users/frankie/Documents/Websites/projects/truefalsenull/.jshintrc",
 		"/Users/frankie/Documents/Websites/projects/truefalsenull/node_modules/gulp/index.js",
@@ -176,6 +182,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"check =",
 			"q.",
 			"'",
 			".run",
@@ -208,7 +215,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -217,15 +224,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2503,
+						"buffer_size": 2535,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								155,
-								155
+								595,
+								595
 							]
 						],
 						"settings":
@@ -233,21 +240,124 @@
 							"BracketHighlighterBusy": false,
 							"bh_regions":
 							[
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
 								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
 								"bh_c_define",
 								"bh_c_define_center",
 								"bh_c_define_open",
 								"bh_c_define_close",
 								"bh_c_define_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content"
+							],
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "spec/tfn-spec.js",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 4317,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1599,
+								1620
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
 								"bh_single_quote",
 								"bh_single_quote_center",
 								"bh_single_quote_open",
@@ -263,37 +373,22 @@
 								"bh_square_open",
 								"bh_square_close",
 								"bh_square_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
 								"bh_default_close",
 								"bh_default_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content"
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
 							],
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 922.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
