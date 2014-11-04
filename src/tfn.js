@@ -1,10 +1,6 @@
 "use strict";
 
-//Look for the global.
-//If its not there, require it.
-if (!Q) {
-	var Q = require("q");
-}
+var Q = require("q");
 
 var TFN = function () {
 	this.middleware = [];
@@ -107,6 +103,4 @@ TFN.prototype.normalizeResult = function (result) {
 	return result;
 };
 
-if (module) {
-	module.exports = TFN;
-}
+module.exports = TFN;
