@@ -84,7 +84,7 @@ TFN.prototype.run = function (user, key, resource, options, skip, deferred, inde
 		}
 
 		self.run(user, key, resource, options, skip, deferred, index + 1);
-	});
+	}).done();
 
 	//put options at the end because not all middleware will use them
 	//i'm using options because I'm thinking about multitenancy
