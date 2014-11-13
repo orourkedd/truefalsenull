@@ -1,7 +1,10 @@
 "use strict";
 
+//@todo - add tests where exceptions are thrown in middleware and other places where
+//promises are used to ensure that q does swallow them.
+
 var expect = require("chai").expect;
-var TFN = require("../src/tfn");
+var TFN = require("../src/tfn").TFN;
 
 describe("TFN", function () {
 
