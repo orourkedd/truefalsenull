@@ -2,7 +2,7 @@ truefalsenull (tfn)
 =============
 A small module designed to make user authorization cleaner.  Inspired slightly by CanCan.
 
-The documentation below is not extensive.  You should read the module's source for features not mentioned below.
+This documentation is not extensive.  You should read the module's source for features not mentioned below.
 
 Problems with simple Role Based Access Control
 -------
