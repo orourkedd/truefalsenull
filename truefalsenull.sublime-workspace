@@ -25,9 +25,14 @@
 	[
 	],
 	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
 	"command_palette":
 	{
 		"height": 392.0,
+		"last_filter": "",
 		"selected_items":
 		[
 			[
@@ -103,8 +108,8 @@
 	],
 	"file_history":
 	[
-		"/Users/frankie/Documents/Websites/projects/truefalsenull/spec/tfn-spec.js",
 		"/Users/frankie/Documents/Websites/projects/truefalsenull/package.json",
+		"/Users/frankie/Documents/Websites/projects/truefalsenull/spec/tfn-spec.js",
 		"/Users/frankie/Documents/Websites/projects/truefalsenull/src/tfn.js",
 		"/Users/frankie/Documents/Websites/projects/truefalsenull/gulpfile.js",
 		"/Users/frankie/Documents/Websites/projects/truefalsenull/index.js",
@@ -245,6 +250,7 @@
 	{
 		"height": 0.0
 	},
+	"pinned_build_system": "",
 	"project": "truefalsenull.sublime-project",
 	"replace":
 	{
@@ -254,6 +260,7 @@
 	"select_file":
 	{
 		"height": 0.0,
+		"last_filter": "",
 		"selected_items":
 		[
 			[
@@ -270,6 +277,7 @@
 	"select_project":
 	{
 		"height": 0.0,
+		"last_filter": "",
 		"selected_items":
 		[
 		],
@@ -278,6 +286,7 @@
 	"select_symbol":
 	{
 		"height": 392.0,
+		"last_filter": "",
 		"selected_items":
 		[
 		],

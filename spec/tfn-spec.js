@@ -4,7 +4,7 @@
 //promises are used to ensure that q does swallow them.
 
 var expect = require("chai").expect;
-var TFN = require("../src/tfn").TFN;
+var TFN = require("../lib/tfn").TFN;
 
 describe("TFN", function () {
 
@@ -182,5 +182,31 @@ describe("TFN", function () {
 
 		});
 
+	});
+
+	describe("checkMap", function () {
+
+		it("should run multiple checks", function (done) {
+			var tfn = new TFN();
+
+			tfn.use(function (user, key, resource, deferred) {
+				if(key === "userEdit") {
+					return deferred.resolve(true);
+				}
+
+				if(key === "userCreate") {
+					return deferred.resolve(false);
+				}
+
+				deferred.resolve(null);
+			});
+
+			tfn.checkMap({}, [{key: "userEdit"}, {key: "userShow"}, {key: "userCreate"}]).then(function (results) {
+				expect(results["userEdit"]).to.eq(true);
+				expect(results["userShow"]).to.eq(null);
+				expect(results["userCreate"]).to.eq(false);
+				done();
+			}).done();
+		});
 	});
 });
