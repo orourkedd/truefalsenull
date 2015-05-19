@@ -1,7 +1,6 @@
 "use strict";
 
 //@todo - add tests where exceptions are thrown in middleware and other places where
-//promises are used to ensure that q does swallow them.
 
 var expect = require("chai").expect;
 var TFN = require("../lib/tfn").TFN;
@@ -34,7 +33,7 @@ describe("TFN", function () {
 			tfn.check({}, "userEdit").then(function (result) {
 				expect(result.result).to.eq(true);
 				done();
-			});
+			}).done();
 		});
 
 		it("should return false when middleware returns false", function (done) {
@@ -49,7 +48,7 @@ describe("TFN", function () {
 			tfn.check({}, "userEdit").then(function (result) {
 				expect(result.result).to.eq(false);
 				done();
-			});
+			}).done();
 		});
 
 		it("should return null when no middleware returns true or false", function (done) {
@@ -62,14 +61,16 @@ describe("TFN", function () {
 			tfn.check({}, "userEdit").then(function (result) {
 				expect(result.result).to.eq(null);
 				done();
-			});
+			}).done();
 		});
 
 		it("should not check middleware if resource is required and no resource is given", function (done) {
 			var tfn = new TFN();
 
+			var called = false;
 			tfn.use({
 				middleware: function (user, key, resource, deferred) {
+					called = true;
 					deferred.resolve(true);
 				},
 				requireResource: true
@@ -80,9 +81,9 @@ describe("TFN", function () {
 			});
 
 			tfn.check({}, "userEdit").then(function (result) {
-				expect(result.result).to.eq(null);
+				expect(called).to.eq(false);
 				done();
-			});
+			}).done();
 		});
 
 		it("should not check middleware if the middleware does not accept the key", function (done) {
@@ -101,7 +102,7 @@ describe("TFN", function () {
 			tfn.check({}, "userEdit").then(function (result) {
 				expect(result.result).to.eq(true);
 				done();
-			});
+			}).done();
 		});
 
 		it("should return a promise when there is no middleware execute", function (done) {
@@ -109,7 +110,7 @@ describe("TFN", function () {
 
 			tfn.check({}, "test").then(function () {
 				done();
-			});
+			}).done();
 		});
 
 		it("should skip middleware when using skip index", function (done) {
@@ -121,13 +122,13 @@ describe("TFN", function () {
 					//rerunning the middleware stack.
 					this.check(user, "test", resource, null, middlewareIndex).then(function (result) {
 						deferred.resolve(true);
-					});
+					}).done();
 				}
 			});
 
 			tfn.check({}, "test").then(function () {
 				done();
-			});
+			}).done();
 		});
 
 		it("should work with nested calls", function (done) {
@@ -144,7 +145,7 @@ describe("TFN", function () {
 						} else {
 							deferred.resolve(false);
 						}
-					});
+					}).done();
 				}
 			});
 
@@ -158,7 +159,7 @@ describe("TFN", function () {
 						} else {
 							deferred.resolve(false);
 						}
-					});
+					}).done();
 				}
 			});
 
@@ -178,7 +179,7 @@ describe("TFN", function () {
 				expect(result.result).to.eq(true);
 
 				done();
-			});
+			}).done();
 
 		});
 

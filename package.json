@@ -1,7 +1,7 @@
 {
   "name": "truefalsenull",
-  "version": "0.0.9",
-  "description": "A simple way of asking complex questions about user state.",
+  "version": "0.0.11",
+  "description": "A simple way of asking complex questions about users.",
   "main": "index.js",
   "scripts": {
     "test": "gulp"
@@ -10,7 +10,7 @@
     "authorization",
     "preferences"
   ],
-  "author": "Frankie O'Rourke",
+  "author": "orourkedd",
   "license": "MIT",
   "devDependencies": {
     "chai": "^1.9.2",
@@ -24,7 +24,6 @@
   "repository": "https://github.com/orourkedd/truefalsenull.git",
   "dependencies": {
     "async": "^0.9.0",
-    "lodash": "^3.8.0",
     "q": "^1.0.1"
   }
 }
