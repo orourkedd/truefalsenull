@@ -2,6 +2,8 @@ truefalsenull (tfn)
 =============
 A small module designed to make user authorization cleaner.  Inspired slightly by CanCan.
 
+The documentation below is not extensive.  You should read the module's source for features not mentioned below.
+
 Problems with simple Role Based Access Control
 -------
 A lot of times developers use a simple RBAC implementation to determine what users should or should not be able to do.  The basic implementation normally looks something like this disaster:
