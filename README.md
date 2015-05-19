@@ -146,4 +146,4 @@ Bottom Line
 Using tfn like described above will mean the following:  
 * All authorization logic will be centralized and outside of your application business logic.
 * Your authorization code will be easy to test if you separate each piece fo tfn middleware into its own module (recommended).
-* Your system will be able to elegantly handle all sorts of advanced scenarios by adding more middleware.
+* Your system will be able to elegantly handle all sorts of advanced authorization scenarios by adding more middleware.
