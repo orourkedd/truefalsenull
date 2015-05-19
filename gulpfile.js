@@ -22,5 +22,5 @@ gulp.task("default", function () {
 });
 
 gulp.task("watch:spec", function () {
-	gulp.start("default").watch(["./spec/**/*-spec.js", "./src/**/*"], ["default"]);
+	gulp.start("default").watch(["./spec/**/*-spec.js", "./lib/**/*"], ["default"]);
 });
