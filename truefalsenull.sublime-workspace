@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"pr",
+				"promise"
+			],
+			[
 				"pro",
 				"prototype"
 			],
@@ -103,22 +107,23 @@
 	[
 		"/Users/frankie/Documents/Websites/projects/truefalsenull",
 		"/Users/frankie/Documents/Websites/projects/truefalsenull/lib",
-		"/Users/frankie/Documents/Websites/projects/truefalsenull/spec",
-		"/Users/frankie/Documents/Websites/projects/truefalsenull/src"
+		"/Users/frankie/Documents/Websites/projects/truefalsenull/spec"
 	],
 	"file_history":
 	[
+		"/Users/frankie/Documents/Websites/projects/truefalsenull/lib/tfn.js",
+		"/Users/frankie/Documents/Websites/projects/truefalsenull/gulpfile.js",
+		"/Users/frankie/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/frankie/Documents/Websites/projects/truefalsenull/README.md",
+		"/Users/frankie/Documents/Websites/projects/truefalsenull/.jshintrc",
 		"/Users/frankie/Documents/Websites/projects/truefalsenull/package.json",
 		"/Users/frankie/Documents/Websites/projects/truefalsenull/spec/tfn-spec.js",
-		"/Users/frankie/Documents/Websites/projects/truefalsenull/src/tfn.js",
-		"/Users/frankie/Documents/Websites/projects/truefalsenull/gulpfile.js",
 		"/Users/frankie/Documents/Websites/projects/truefalsenull/index.js",
+		"/Users/frankie/Documents/Websites/projects/truefalsenull/src/tfn.js",
 		"/Users/frankie/Documents/Websites/projects/truefalsenull/lib/tfn.browser.js",
-		"/Users/frankie/Documents/Websites/projects/truefalsenull/lib/tfn.js",
 		"/Users/frankie/Documents/Websites/projects/truefalsenull/tfn.browser.js",
 		"/Users/frankie/Documents/Websites/projects/truefalsenull/lib/out.js",
 		"/Users/frankie/Documents/Websites/projects/truefalsenull/t.js",
-		"/Users/frankie/Documents/Websites/projects/truefalsenull/.jshintrc",
 		"/Users/frankie/Documents/Websites/projects/truefalsenull/node_modules/gulp/index.js",
 		"/Users/frankie/Documents/Websites/projects/truefalsenull/node_modules/mocha/lib/reporters/spec.js",
 		"/Users/frankie/Documents/Websites/projects/truefalsenull/node_modules/gulp-watch/node_modules/readable-stream/lib/_stream_passthrough.js",
@@ -150,7 +155,6 @@
 		"/Users/frankie/Documents/Websites/epistle/epistle/server/config/config.json",
 		"/Users/frankie/Documents/Websites/epistle/epistle/server/epistle-server.sublime-project",
 		"/Users/frankie/Downloads/myApp/test.js",
-		"/Users/frankie/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
 		"/Users/frankie/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
 		"/Users/frankie/Downloads/myApp/myApp.sublime-project"
 	],
@@ -171,6 +175,16 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"can ",
+			"keys",
+			"_",
+			"self",
+			".bind",
+			"self",
+			".check",
+			"console",
+			"eck middleware if resource is required and no res",
+			"resolve",
 			".done",
 			"check",
 			"check =",
