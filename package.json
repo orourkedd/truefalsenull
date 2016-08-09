@@ -20,7 +20,8 @@
   "repository": "https://github.com/orourkedd/truefalsenull.git",
   "dependencies": {
     "async": "^2.0.1",
-    "bluebird": "^3.4.1"
+    "bluebird": "^3.4.1",
+    "ramda": "^0.22.1"
   },
   "standard": {
     "parser": "babel-eslint",

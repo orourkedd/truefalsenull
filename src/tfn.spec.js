@@ -1,53 +1,36 @@
 const eq = require('assert').deepEqual
-const { TFN } = require('./tfn')
+const { check, checkMap } = require('./tfn')
 
 describe('TFN', () => {
-  describe('use', () => {
-    it('should add middleware', () => {
-      var tfn = new TFN()
-
-      tfn.use((user, key, resource) => true)
-
-      eq(tfn.middleware.length, 1)
-    })
-  })
-
   describe('check', () => {
     it('should return true when middleware returns true', () => {
-      var tfn = new TFN()
+      let m = [(user, key, resource) => true]
 
-      tfn.use((user, key, resource) => true)
-
-      return tfn.check({}, 'userEdit').then((result) => {
+      return check(m, {}, 'userEdit').then((result) => {
         eq(result, true)
       })
     })
 
     it('should return false when middleware returns false', () => {
-      var tfn = new TFN()
+      let m = [(user, key, resource) => false]
 
-      tfn.use((user, key, resource) => false)
-
-      return tfn.check({}, 'userEdit').then((result) => {
+      return check(m, {}, 'userEdit').then((result) => {
         eq(result, false)
       })
     })
 
     it('should return null when no middleware returns true or false', () => {
-      var tfn = new TFN()
+      let m = [(user, key, resource) => null]
 
-      tfn.use((user, key, resource) => null)
-
-      return tfn.check({}, 'userEdit').then((result) => {
+      return check(m, {}, 'userEdit').then((result) => {
         eq(result, null)
       })
     })
 
     it('should not check middleware if resource is required and no resource is given', () => {
-      var tfn = new TFN()
-
       var called = false
-      tfn.use({
+      let m = []
+      m.push({
         fn: (user, key, resource) => {
           called = true
           return true
@@ -55,37 +38,34 @@ describe('TFN', () => {
         requireResource: true
       })
 
-      tfn.use((user, key, resource) => null)
+      m.push((user, key, resource) => null)
 
-      return tfn.check({}, 'userEdit').then((result) => {
+      return check(m, {}, 'userEdit').then((result) => {
         eq(called, false)
       })
     })
 
     it('should not check middleware if the middleware does not accept the key', () => {
-      var tfn = new TFN()
-      tfn.use({
+      let m = []
+      m.push({
         fn: (user, key, resource) => true,
         keys: ['userEdit']
       })
 
-      tfn.use((user, key, resource) => null)
+      m.push((user, key, resource) => null)
 
-      return tfn.check({}, 'userEdit').then((result) => {
+      return check(m, {}, 'userEdit').then((result) => {
         eq(result, true)
       })
     })
 
     it('should return a promise when there is no middleware execute', () => {
-      var tfn = new TFN()
-
-      return tfn.check({}, 'test').then(r => r)
+      return check([], {}, 'test').then(r => r)
     })
 
     it('should skip middleware when using skip index', () => {
-      var tfn = new TFN()
-
-      tfn.use({
+      let m = []
+      m.push({
         fn: (user, key, resource, options, check) => {
           // this should call deadly recursion.  skip will cause it to be skipped over when
           // rerunning the middleware stack.
@@ -93,14 +73,14 @@ describe('TFN', () => {
         }
       })
 
-      return tfn.check({}, 'test').then(r => r)
+      return check(m, {}, 'test').then(r => r)
     })
 
     it('should work with nested calls', () => {
-      var tfn = new TFN()
       var one, two, three
 
-      tfn.use({
+      let m = []
+      m.push({
         keys: ['usePreferencesTestFeature'],
         fn: (user, key, resource, options, check) => {
           one = true
@@ -108,7 +88,7 @@ describe('TFN', () => {
         }
       })
 
-      tfn.use({
+      m.push({
         keys: ['tentantHasTestFeature'],
         fn: (user, key, resource, options, check) => {
           two = true
@@ -116,7 +96,7 @@ describe('TFN', () => {
         }
       })
 
-      tfn.use({
+      m.push({
         keys: ['isAllowedToUseTestFeature'],
         fn: (user, key, resource) => {
           three = true
@@ -124,7 +104,7 @@ describe('TFN', () => {
         }
       })
 
-      return tfn.check({}, 'usePreferencesTestFeature').then((result) => {
+      return check(m, {}, 'usePreferencesTestFeature').then((result) => {
         // Make sure all middleware is called
         eq(one, true)
         eq(two, true)
@@ -136,9 +116,8 @@ describe('TFN', () => {
 
   describe('checkMap', () => {
     it('should run multiple checks', () => {
-      var tfn = new TFN()
-
-      tfn.use((user, key, resource) => {
+      let m = []
+      m.push((user, key, resource) => {
         if (key === 'userEdit') {
           return true
         }
@@ -150,7 +129,7 @@ describe('TFN', () => {
         return null
       })
 
-      return tfn.checkMap({}, [{key: 'userEdit'}, {key: 'userShow'}, {key: 'userCreate'}])
+      return checkMap(m, {}, [{key: 'userEdit'}, {key: 'userShow'}, {key: 'userCreate'}])
       .then((results) => {
         eq(results['userEdit'], true)
         eq(results['userShow'], null)
