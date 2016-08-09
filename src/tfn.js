@@ -5,21 +5,6 @@ const {
   normalizeToPromise
 } = require('./util')
 
-// Check a list of permissions at the same time and map results to an object
-// checks = [{
-// 	key: String,
-// 	resource: {},
-// 	options: {}
-// }]
-function checkMap (middlewareStack, user, checks) {
-  return asyncReduce(checks, {}, (memo, entry, done) => {
-    check(middlewareStack, user, entry.key, entry.resource, entry.options).then((result) => {
-      memo[entry.key] = result
-      done(null, memo)
-    })
-  })
-}
-
 // A recursive function used to run the middleware chain
 function check (middlewareStack, user, key, resource = null, options = {}, index = 0) {
   // If we're at the end of the chain, return null
@@ -74,6 +59,21 @@ function check (middlewareStack, user, key, resource = null, options = {}, index
       return next()
     }
   )
+}
+
+// Check a list of permissions at the same time and map results to an object
+// checks = [{
+// 	key: String,
+// 	resource: {},
+// 	options: {}
+// }]
+function checkMap (middlewareStack, user, checks) {
+  return asyncReduce(checks, {}, (memo, entry, done) => {
+    check(middlewareStack, user, entry.key, entry.resource, entry.options).then((result) => {
+      memo[entry.key] = result
+      done(null, memo)
+    })
+  })
 }
 
 function getMiddleware (m) {

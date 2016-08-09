@@ -6,7 +6,16 @@ describe('TFN', () => {
     it('should return true when middleware returns true', () => {
       let m = [(user, key, resource) => true]
 
-      return check(m, {}, 'userEdit').then((result) => {
+      return check(m, user(), 'userEdit').then((result) => {
+        eq(result, true)
+      })
+    })
+
+    it('should curry well... thai?', () => {
+      let m = [(user, key, resource) => true]
+
+      let checker = check(m, user())
+      return checker('userEdit').then((result) => {
         eq(result, true)
       })
     })
@@ -14,7 +23,7 @@ describe('TFN', () => {
     it('should return false when middleware returns false', () => {
       let m = [(user, key, resource) => false]
 
-      return check(m, {}, 'userEdit').then((result) => {
+      return check(m, user(), 'userEdit').then((result) => {
         eq(result, false)
       })
     })
@@ -22,7 +31,7 @@ describe('TFN', () => {
     it('should return null when no middleware returns true or false', () => {
       let m = [(user, key, resource) => null]
 
-      return check(m, {}, 'userEdit').then((result) => {
+      return check(m, user(), 'userEdit').then((result) => {
         eq(result, null)
       })
     })
@@ -40,7 +49,7 @@ describe('TFN', () => {
 
       m.push((user, key, resource) => null)
 
-      return check(m, {}, 'userEdit').then((result) => {
+      return check(m, user(), 'userEdit').then((result) => {
         eq(called, false)
       })
     })
@@ -54,13 +63,13 @@ describe('TFN', () => {
 
       m.push((user, key, resource) => null)
 
-      return check(m, {}, 'userEdit').then((result) => {
+      return check(m, user(), 'userEdit').then((result) => {
         eq(result, true)
       })
     })
 
     it('should return a promise when there is no middleware execute', () => {
-      return check([], {}, 'test').then(r => r)
+      return check([], user(), 'test').then(r => r)
     })
 
     it('should skip middleware when using skip index', () => {
@@ -73,7 +82,7 @@ describe('TFN', () => {
         }
       })
 
-      return check(m, {}, 'test').then(r => r)
+      return check(m, user(), 'test').then(r => r)
     })
 
     it('should work with nested calls', () => {
@@ -104,7 +113,7 @@ describe('TFN', () => {
         }
       })
 
-      return check(m, {}, 'usePreferencesTestFeature').then((result) => {
+      return check(m, user(), 'usePreferencesTestFeature').then((result) => {
         // Make sure all middleware is called
         eq(one, true)
         eq(two, true)
@@ -129,7 +138,7 @@ describe('TFN', () => {
         return null
       })
 
-      return checkMap(m, {}, [{key: 'userEdit'}, {key: 'userShow'}, {key: 'userCreate'}])
+      return checkMap(m, user(), [{key: 'userEdit'}, {key: 'userShow'}, {key: 'userCreate'}])
       .then((results) => {
         eq(results['userEdit'], true)
         eq(results['userShow'], null)
@@ -138,3 +147,7 @@ describe('TFN', () => {
     })
   })
 })
+
+function user () {
+  return {}
+}
