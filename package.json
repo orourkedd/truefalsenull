@@ -1,29 +1,35 @@
 {
   "name": "truefalsenull",
-  "version": "0.0.12",
+  "version": "1.0.0",
   "description": "A simple way of asking complex questions about users.",
   "main": "index.js",
   "scripts": {
-    "test": "gulp"
+    "test": "mocha ./src/**/*.spec.js"
   },
   "keywords": [
     "authorization",
     "preferences"
   ],
-  "author": "orourkedd",
+  "author": "Frankie O'Rourke <frankie@orourkedd.com>",
   "license": "MIT",
   "devDependencies": {
-    "chai": "^1.9.2",
-    "gulp": "^3.8.9",
-    "gulp-mocha": "^1.1.1",
-    "gulp-notify": "^2.0.0",
-    "gulp-plumber": "^0.6.6",
-    "gulp-watch": "^1.1.0",
-    "mocha": "^2.0.1"
+    "babel-eslint": "^6.1.2",
+    "mocha": "^3.0.2"
   },
   "repository": "https://github.com/orourkedd/truefalsenull.git",
   "dependencies": {
-    "async": "^0.9.0",
-    "q": "^1.0.1"
+    "async": "^2.0.1",
+    "bluebird": "^3.4.1"
+  },
+  "standard": {
+    "parser": "babel-eslint",
+    "globals": [
+      "it",
+      "describe",
+      "beforeEach",
+      "afterEach",
+      "before",
+      "after"
+    ]
   }
 }
