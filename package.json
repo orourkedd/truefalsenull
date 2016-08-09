@@ -4,7 +4,8 @@
   "description": "A simple way of asking complex questions about users.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha ./src/**/*.spec.js"
+    "test": "mocha ./src/**/*.spec.js",
+    "watch-test": "mocha -w ./src/**/*.spec.js"
   },
   "keywords": [
     "authorization",
