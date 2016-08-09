@@ -1,5 +1,5 @@
 const eq = require('assert').deepEqual
-const { check, checkMap } = require('./tfn')
+const { check, checkMap } = require('../index')
 
 describe('TFN', () => {
   describe('check', () => {

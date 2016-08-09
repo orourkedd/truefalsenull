@@ -1,4 +1,4 @@
-const { check, use, clear } = require('./singleton')
+const { check, use, clear } = require('../singleton')
 const eq = require('assert').deepEqual
 
 describe('Singleton', () => {

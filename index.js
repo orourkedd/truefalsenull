@@ -1,1 +1,1 @@
-module.exports = require('./src/tfn');
+module.exports = require('./src/tfn')
